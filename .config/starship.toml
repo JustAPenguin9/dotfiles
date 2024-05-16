@@ -1,0 +1,54 @@
+# ~/.config/starship.toml
+
+# Inserts a blank line between shell prompts
+add_newline = false
+
+[line_break]
+disabled=true
+
+# Replace the "❯" symbol in the prompt with "➜"
+[character]
+success_symbol = "[→](bold green)" # ➜
+# success_symbol = "[⮞](bold green)"
+error_symbol = "[✖](bold red)"
+
+[directory]
+truncation_length = 100
+truncate_to_repo = false
+
+[cmd_duration]
+disabled = false
+format = "[$duration]($style) "
+
+# Git Repos
+[git_branch]
+symbol = " "
+format = "[$symbol$branch]($style) "
+
+[git_status]
+disabled = false
+ahead = "⇡${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+behind = "⇣${count}"
+
+# Languages
+[package]
+disabled = true
+
+[deno]
+version_format = "${major}.${minor}"
+format = "[$symbol$version]($style) "
+
+[nodejs]
+version_format = "${major}.${minor}"
+format = "[$symbol$version]($style) "
+
+[python]
+symbol = " "
+version_format = "${major}.${minor}"
+format = "[$symbol$version]($style) "
+
+[rust]
+# symbol = " "
+version_format = "${major}.${minor}"
+format = "[$symbol$version]($style) "

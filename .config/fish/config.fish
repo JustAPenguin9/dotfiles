@@ -1,19 +1,18 @@
 # remove default greeting
 set -g fish_greeting
 
-### SET ENVIORNMENT
+### SET ENVIRONMENT
 set TERM "xterm-256color"
 set -x SSH_AUTH_SOCK $XDG_RUNTIME_DIR/ssh-agent.socket
-
-# configs
-set -gx XDG_CONFIG_HOME $HOME/.config
-
-### ENVIORNMENT VARIABLES
 set -gx EDITOR /usr/bin/nvim
+set PATH $PATH $HOME/.emacs.d/bin
+
+# XDG
+set -gx XDG_CONFIG_HOME $HOME/.config
 
 # npm variables
 set NPM_PACKAGES "$HOME/.npm-packages"
-set PATH $PATH $NPM_PACKAGES/bin $HOME/.emacs.d/bin
+set PATH $PATH $NPM_PACKAGES/bin
 set MANPATH $NPM_PACKAGES/share/man $MANPATH
 
 ### COLOURS
@@ -25,43 +24,13 @@ set -g fish_color_redirection c678dd
 set -g fish_color_end e06c75
 set -g fish_color_operator e5c07b # yellow can be aqua 56b6c2 instead
 
-### FUNCTIONS
-# make su also use fish instead of bash
-function su
-	command su --shell=/usr/bin/fish $argv
-end
-
-### AKIASES
+### ALIASES
 alias ls "lsd -A --group-dirs first"
 # alias rm "rm -i"
 # alias cp "cp -i"
 # alias mv "mv -i"
 
-function edit
-	if [ (count $argv) -lt 1 ]
-		echo 'file or folder needed'
-		return
-	end
-
-	# file in current dir
-	if [ (dirname $argv[1]) = '.' ]
-		nvim $argv[1]
-		return
-	end
-	
-	# directory
-	if test -d $argv[1]
-		cd $argv[1]
-		nvim .
-	# file in different dir
-	else
-		cd (dirname $argv[1])
-		nvim $argv[1]
-	end
-	prevd
-end
-abbr n edit
-
+# config files
 alias fishconf      "edit ~/.config/fish/config.fish"
 alias kittyconf     "edit ~/.config/kitty/kitty.conf"
 alias nvimconf      "edit ~/.config/nvim/"
@@ -69,43 +38,52 @@ alias vimconf       "edit ~/.vimrc"
 alias alacrittyconf "edit ~/.config/alacritty/alacritty.yml"
 alias qtileconf     "edit ~/.config/qtile/config.py"
 
-abbr pause "playerctl pause"
-abbr play  "playerctl play"
-
-alias tl "task list"
-alias ta "task add"
-alias te "task edit"
-alias td "task done"
-
-abbr ytdl "yt-dlp --all-subs --embed-subs --write-description --write-info-json"
-
-# dirs
-alias gocode "cd /home/stephen/Projects/code"
 
 ### ABBREVIATIONS
+abbr update "sudo pacman -Syu"
+abbr n edit
 abbr e exit
-abbr cls clear
+abbr :q exit # habit
+abbr cls clear # also habit
+
+# util
+abbr ytarchive "yt-dlp --all-subs --embed-subs --write-description --write-info-json"
+abbr pubip "curl ifconfig.me"
+
+# apps
 abbr find fd
 abbr ht htop
 abbr bt btop
 abbr emacsc emacsclient -c -a 'emacs'
 
-abbr update "sudo pacman -Syu"
-abbr img "jp2a --color-depth=8"
-abbr pipes "pipes-rs -r .5 -t .1"
-
+# ssh
 abbr sshpi "ssh pi@192.168.2.11"
 
-abbr ipconfig "curl ifconfig.me"
+# dirs
+abbr gocode "cd /home/$USER/Projects/code"
 
-### starship
+# git
+abbr gs git status
+abbr gc git commit
+# abbr gm git commit -m # conflicts with GraphicsMagick
+abbr gl git log --oneline
+abbr ga git add
+abbr gu git add -u
+abbr gb git switch
+abbr gr git restore
+abbr gd git diff
+
+# playerctl
+abbr pause "playerctl pause"
+abbr play "playerctl play"
+
+# task warrior
+abbr tl "task list"
+abbr ta "task add"
+abbr te "task edit"
+abbr td "task done"
+
+### STARTUP
 starship init fish | source
-
-#abbr testdb  "mysql testing -u Fubuki -p"
-#abbr akyuudb "mysql akyuu_records -u Fubuki -h 192.168.2.11 -p"
-
-### AUTORUN
 #task list
 
-# Created by `pipx` on 2024-01-29 02:38:48
-set PATH $PATH /home/stephen/.local/bin

@@ -1,0 +1,10 @@
+# inspiration from https://askubuntu.com/a/1168481
+[Desktop Entry]
+Type=Application
+NoDisplay=true
+Comment=Windows compatable url opener using the default browser (requires xdg-open)
+Name=URL Handler
+MimeType=application/x-mswinurl;
+# unlike the solution found, mine has no checking for a valid url and will open
+# whatever is in the url spot but it is simpler and it works
+Exec=bash -c "set -e; xdg-open \\$(perl -0777 -pe 's/\\[InternetShortcut\\]\\nURL=//igs' %f )"

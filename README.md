@@ -1,4 +1,4 @@
-# penguins config files
+# my config files
 
 ## setup
 

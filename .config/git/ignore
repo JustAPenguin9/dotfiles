@@ -1,0 +1,6 @@
+# list of things to work on
+todo.*
+
+# for when i need to test and retest a db
+dump.sql
+

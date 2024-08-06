@@ -65,10 +65,12 @@ abbr gocode "cd /home/$USER/Projects/code"
 # git
 abbr gs git status
 abbr gc git commit
-# abbr gm git commit -m # conflicts with GraphicsMagick
-abbr gl git log --oneline
+abbr gca git commit --amend --no-edit
+abbr gcm git commit -m
+abbr gl git log
+abbr glo git log --oneline
 abbr ga git add
-abbr gu git add -u
+abbr gau git add -u
 abbr gb git switch
 abbr gr git restore
 abbr gd git diff

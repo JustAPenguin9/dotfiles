@@ -74,6 +74,9 @@ abbr gau git add -u
 abbr gb git switch
 abbr gr git restore
 abbr gd git diff
+abbr gds git diff --staged
+abbr gdw git diff --word-diff
+abbr gdws git diff --word-diff --staged
 
 # playerctl
 abbr pause "playerctl pause"

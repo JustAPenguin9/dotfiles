@@ -25,10 +25,14 @@ set -g fish_color_end e06c75
 set -g fish_color_operator e5c07b # yellow can be aqua 56b6c2 instead
 
 ### ALIASES
-alias ls "lsd -A --group-dirs first"
 # alias rm "rm -i"
 # alias cp "cp -i"
 # alias mv "mv -i"
+
+# old app new app
+alias ls "lsd -A --group-dirs first"
+alias find fd
+alias grep rg
 
 # config files
 alias fishconf      "edit ~/.config/fish/config.fish"
@@ -37,7 +41,6 @@ alias nvimconf      "edit ~/.config/nvim/"
 alias vimconf       "edit ~/.vimrc"
 alias alacrittyconf "edit ~/.config/alacritty/alacritty.yml"
 alias qtileconf     "edit ~/.config/qtile/config.py"
-
 
 ### ABBREVIATIONS
 abbr update "sudo pacman -Syu"
@@ -51,7 +54,6 @@ abbr ytarchive "yt-dlp --all-subs --embed-subs --write-description --write-info-
 abbr pubip "curl ifconfig.me"
 
 # apps
-abbr find fd
 abbr ht htop
 abbr bt btop
 abbr emacsc emacsclient -c -a 'emacs'

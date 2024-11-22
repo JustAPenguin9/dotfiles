@@ -13,12 +13,13 @@ function edit
 	
 	# directory
 	if test -d $argv[1]
-		cd $argv[1]
+		pushd $argv[1]
 		nvim .
+		popd
 	# file in different dir
 	else
-		cd (dirname $argv[1])
+		pushd (dirname $argv[1])
 		nvim $argv[1]
+		popd
 	end
-	prevd
 end

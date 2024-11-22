@@ -1,9 +1,10 @@
 # remove default greeting
 set -g fish_greeting
+alias sourcefish "source ~/.config/fish/config.fish"
 
 ### SET ENVIRONMENT
 set TERM "xterm-256color"
-set -x SSH_AUTH_SOCK $XDG_RUNTIME_DIR/ssh-agent.socket
+# set -x SSH_AUTH_SOCK $XDG_RUNTIME_DIR/ssh-agent.socket
 set -gx EDITOR /usr/bin/nvim
 set PATH $PATH $HOME/.emacs.d/bin
 
@@ -59,24 +60,28 @@ abbr bt btop
 abbr emacsc emacsclient -c -a 'emacs'
 
 # ssh
-abbr sshpi "ssh pi@192.168.2.11"
-
-# dirs
-abbr gocode "cd /home/$USER/Projects/code"
+# abbr sshpi "ssh pi@192.168.2.11"
 
 # git
 abbr gs git status
+abbr gp git pull
+abbr gpr git pull --rebase
 abbr gc git commit
 abbr gca git commit --amend --no-edit
 abbr gcm git commit -m
 abbr gl git log
 abbr glo git log --oneline
+abbr gls git shortlog
 abbr ga git add
 abbr gau git add -u
-abbr gb git switch
+abbr gb git branch
+abbr gbl git branch -la
+abbr gbs git switch
 abbr gr git restore
+abbr grs git restore --staged
 abbr gd git diff
 abbr gds git diff --staged
+# maybe it should be gwd(s) to go along with Git diff --Word-Diff (--Staged)
 abbr gdw git diff --word-diff
 abbr gdws git diff --word-diff --staged
 
@@ -90,7 +95,8 @@ abbr ta "task add"
 abbr te "task edit"
 abbr td "task done"
 
-### STARTUP
+### STARTUP requires starship and zoxide
 starship init fish | source
+zoxide init fish | source
 #task list
 

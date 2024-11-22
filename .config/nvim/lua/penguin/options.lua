@@ -19,7 +19,7 @@ opt.relativenumber = true
 
 -- searching
 opt.incsearch = true
-opt.hlsearch = false
+opt.hlsearch = true
 opt.ignorecase = true
 opt.smartcase = true
 

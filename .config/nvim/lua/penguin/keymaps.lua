@@ -56,4 +56,4 @@ set('n', '<leader>ot', function ()
 end, {desc = 'Open terminal in a vertical split'})
 
 -- if hlsearch is true enable this
--- set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+set('n', '<Esc>', '<cmd>nohlsearch<CR>')

@@ -11,7 +11,7 @@ opt.confirm = true
 opt.mouse = 'a'
 
 -- synced clipboard
-opt.clipboard = 'unnamedplus'
+-- opt.clipboard = 'unnamedplus'
 
 -- line numbers
 opt.number = true
@@ -67,4 +67,3 @@ opt.undofile = true
 
 -- format options
 -- vim.formatoptions:remove('o')
-

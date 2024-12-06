@@ -30,4 +30,3 @@ return {
 		vim.keymap.set('n', '<leader>cC', crates.open_crates_io, { desc = 'Open crate crates.io page' })
 	end,
 }
-

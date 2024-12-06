@@ -1,12 +1,17 @@
 local set = vim.keymap.set
 
 -- easier lua stuff
-set("n", "<leader>x", "<cmd>source % | echo 'sourced the file'<CR>", { desc = "Source the current file" })
+set('n', '<leader>X', "<cmd>source % | echo 'sourced the file'<CR>", { desc = 'Source the current file' })
+set('n', '<leader>x', ':.lua<CR>', { desc = 'Source the current line of lua code' })
+set('v', '<leader>x', ':lua<CR>', { desc = 'Source the selected lua code' })
 
--- inc dec numbers
--- ctrl-x/a
-set("n", "<leader>[", "<C-x>", {desc = "Decremnt the number at the cursor"})
-set("n", "<leader>]", "<C-a>", {desc = "Increment the number at the cursor"})
+-- clipboard (unneeded if clipboard is unnamedplus in options.lua)
+set('n', '<leader>y', '"+y', { desc = 'Copy to clipboard' })
+set('n', '<leader>d', '"+d', { desc = 'Cut to clipboard' })
+set('n', '<leader>yy', '"+yy', { desc = 'Copy line to clipboard' })
+set('n', '<leader>dd', '"+dd', { desc = 'Cut line to clipboard' })
+set('v', '<leader>y', '"+y', { desc = 'Copy to clipboard' })
+set('v', '<leader>d', '"+d', { desc = 'Cut to clipboard' })
 
 -- diagnostic
 set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
@@ -29,31 +34,31 @@ set('n', '[q', vim.cmd.cprev, { desc = 'Go to previous in the [Q]uickfix list' }
 set('n', ']q', vim.cmd.cnext, { desc = 'Go to next in the [Q]uickfix list' })
 
 -- tabs
-set('n', '<leader>tb', '<C-w>T', {desc = 'Break out split to new tab'})
-set('n', '<leader>ts', '<cmd>tab split<CR>', {desc = 'Open current buffer in a new tab'})
-set('n', '<leader>tn', vim.cmd.tabNext, {desc = 'Next tab (gt)'})
-set('n', '<leader>tp', vim.cmd.tabPrevious, {desc = 'Previous tab (gT)'})
-
--- terminal stuffs
-local termBuffer
-set('n', '<leader>tt', function ()
-	vim.cmd.tabnew()
-	if termBuffer then
-		vim.cmd.b(termBuffer)
-	else
-		vim.cmd.term()
-		termBuffer = vim.api.nvim_buf_get_name(0)
-	end
-end, {desc = 'Open terminal in a new tab'})
-set('n', '<leader>ot', function ()
-	vim.cmd.vs()
-	if termBuffer then
-		vim.cmd.b(termBuffer)
-	else
-		vim.cmd.term()
-		termBuffer = vim.api.nvim_buf_get_name(0)
-	end
-end, {desc = 'Open terminal in a vertical split'})
+set('n', '<leader>tb', '<C-w>T', { desc = 'Break out split to new tab' })
+set('n', '<leader>ts', '<cmd>tab split<CR>', { desc = 'Open current buffer in a new tab' })
+set('n', '<leader>tS', '<cmd>tab split<CR>gT', { desc = 'Open current buffer in a new tab without chaning focus' })
+set('n', '<leader>tn', vim.cmd.tabNext, { desc = 'Next tab (gt)' })
+set('n', '<leader>tp', vim.cmd.tabPrevious, { desc = 'Previous tab (gT)' })
 
 -- if hlsearch is true enable this
 set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+
+-- terminal stuffs
+local open_term = function(termName)
+	if vim.fn.bufexists(termName) == 1 then
+		vim.cmd.b(termName)
+	else
+		vim.cmd.term()
+		return vim.api.nvim_buf_get_name(0)
+	end
+end
+
+local termBuffer
+set('n', '<leader>tt', function()
+	vim.cmd.tabnew()
+	termBuffer = open_term(termBuffer)
+end, { desc = 'Open terminal in a new tab' })
+set('n', '<leader>ot', function()
+	vim.cmd.vs()
+	termBuffer = open_term(termBuffer)
+end, { desc = 'Open terminal in a vertical split' })

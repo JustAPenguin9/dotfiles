@@ -1,2 +1,3 @@
 *.bak
 
+.config/fish/fish_variables

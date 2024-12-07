@@ -66,22 +66,33 @@ abbr emacsc emacsclient -c -a 'emacs'
 abbr gs git status
 abbr gp git pull
 abbr gpr git pull --rebase
-abbr gc git commit
-abbr gca git commit --amend --no-edit
-abbr gcm git commit -m
+abbr gf git fetch
+
 abbr gl git log
 abbr glo git log --oneline
 abbr gls git shortlog
-abbr ga git add
-abbr gau git add -u
+
+abbr gri git rebase -i --autosquash
+abbr grc git rebase --continue
+
 abbr gb git branch
 abbr gbl git branch -la
 abbr gbs git switch
+abbr gbd git branch -d
+
+abbr gc git commit
+abbr gcf git commit -f
+abbr gcm git commit -m
+abbr gca git commit --amend --no-edit
+
+abbr ga git add
+abbr gau git add -u
+abbr gaa git add -A
+
 abbr gr git restore
 abbr grs git restore --staged
 abbr gd git diff
 abbr gds git diff --staged
-# maybe it should be gwd(s) to go along with Git diff --Word-Diff (--Staged)
 abbr gdw git diff --word-diff
 abbr gdws git diff --word-diff --staged
 

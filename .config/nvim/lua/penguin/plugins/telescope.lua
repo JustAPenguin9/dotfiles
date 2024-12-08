@@ -18,6 +18,11 @@ return {
 	},
 	config = function()
 		require('telescope').setup({
+			-- pickers = {
+			-- 	find_files = {
+			-- 		hidden = true,
+			-- 	},
+			-- },
 			extensions = {
 				['ui-select'] = {
 					require('telescope.themes').get_dropdown(),
@@ -26,12 +31,20 @@ return {
 		})
 
 		-- Enable telescope extensions, if they are installed
-		pcall(require('telescope').load_extension, 'fzf')
+		pcall(require('telescope').load_extension, 'rg') -- fzf
 		pcall(require('telescope').load_extension, 'ui-select')
 
 		-- See `:help telescope.builtin`
 		local builtin = require('telescope.builtin')
-		vim.keymap.set('n', '<leader><leader>', builtin.find_files, { desc = 'Search files' })
+		vim.keymap.set('n', '<leader><leader>', function()
+			local cmd = vim.api.nvim_exec2('!git rev-parse --is-inside-work-tree', { output = true })
+			local out = string.sub(cmd.output, 41, 44) -- bruh
+			if out == 'true' then
+				require('telescope.builtin').git_files()
+			else
+				require('telescope.builtin').find_files()
+			end
+		end, { desc = 'Search (tracked) files' })
 		vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = 'Search files' })
 		vim.keymap.set('n', '<leader>sr', builtin.oldfiles, { desc = 'Search recent files' })
 		vim.keymap.set('n', '<leader>sp', builtin.git_files, { desc = 'Search git repo files' })

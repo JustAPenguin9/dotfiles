@@ -13,6 +13,7 @@ stow .
 also run this after the fact
 ```sh
 git config --global core.excludesFile ~/.config/git/ignore
+chsh -s /usr/bin/fish
 ```
 
 ## teardown

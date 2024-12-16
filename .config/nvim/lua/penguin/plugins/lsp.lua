@@ -1,50 +1,50 @@
 -- LSP Configuration & Plugins
 
 return {
-	'neovim/nvim-lspconfig',
+	"neovim/nvim-lspconfig",
 	dependencies = {
-		'williamboman/mason.nvim',
-		'williamboman/mason-lspconfig.nvim',
-		'WhoIsSethDaniel/mason-tool-installer.nvim',
+		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
 
-		'nvim-telescope/telescope.nvim',
-		'hrsh7th/cmp-nvim-lsp',
-		{ 'j-hui/fidget.nvim', opts = {} },
+		"nvim-telescope/telescope.nvim",
+		"hrsh7th/cmp-nvim-lsp",
+		{ "j-hui/fidget.nvim", opts = {} },
 	},
 	config = function()
-		vim.api.nvim_create_autocmd('LspAttach', {
-			group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
+		vim.api.nvim_create_autocmd("LspAttach", {
+			group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
 			callback = function(event)
 				local set = function(keys, fun, desc)
-					vim.keymap.set('n', keys, fun, { buffer = event.buf, desc = '' .. desc })
+					vim.keymap.set("n", keys, fun, { buffer = event.buf, desc = "" .. desc })
 				end
 				-- local require('telescope.builtin') = require('telescope.builtin')
 
 				-- To jump back, press <C-T>.
-				set('gd', require('telescope.builtin').lsp_definitions, 'Go to definition')
-				set('<leader>cd', require('telescope.builtin').lsp_definitions, 'Go to definition (gd)')
+				set("gd", require("telescope.builtin").lsp_definitions, "Go to definition")
+				set("<leader>cd", require("telescope.builtin").lsp_definitions, "Go to definition (gd)")
 				-- --set('n', 'gD', require('telescope.builtin').lsp_type_definitions, 'Go to type definition')
-				set('<leader>cD', require('telescope.builtin').lsp_type_definitions, 'Go to type definition')
-				set('gD', vim.lsp.buf.declaration, 'Go to declaration/header file')
-				set('<leader>ch', vim.lsp.buf.declaration, 'Go to declaration/header file (gD)')
-				set('gr', require('telescope.builtin').lsp_references, 'Go to references')
-				set('gI', require('telescope.builtin').lsp_implementations, 'Go to implementation')
+				set("<leader>cD", require("telescope.builtin").lsp_type_definitions, "Go to type definition")
+				set("gD", vim.lsp.buf.declaration, "Go to declaration/header file")
+				set("<leader>ch", vim.lsp.buf.declaration, "Go to declaration/header file (gD)")
+				set("gr", require("telescope.builtin").lsp_references, "Go to references")
+				set("gI", require("telescope.builtin").lsp_implementations, "Go to implementation")
 
-				set('<leader>cs', require('telescope.builtin').lsp_document_symbols, 'List LSP document symbols')
+				set("<leader>cs", require("telescope.builtin").lsp_document_symbols, "List LSP document symbols")
 				set(
-					'<leader>cS',
-					require('telescope.builtin').lsp_dynamic_workspace_symbols,
-					'List LSP project symbols'
+					"<leader>cS",
+					require("telescope.builtin").lsp_dynamic_workspace_symbols,
+					"List LSP project symbols"
 				)
 
-				set('<leader>ca', vim.lsp.buf.code_action, 'Code action')
-				set('<C-.>', vim.lsp.buf.code_action, 'Code action')
-				set('<leader>cr', vim.lsp.buf.rename, 'Rename symbol')
+				set("<leader>ca", vim.lsp.buf.code_action, "Code action")
+				set("<C-.>", vim.lsp.buf.code_action, "Code action")
+				set("<leader>cr", vim.lsp.buf.rename, "Rename symbol")
 				-- set('<leader>rn', vim.lsp.buf.rename, 'Rename symbol')
-				set('<leader>cf', vim.lsp.buf.format, 'Format file')
+				set("<leader>cf", vim.lsp.buf.format, "Format file")
 
-				set('<leader>ck', vim.lsp.buf.hover, 'Hover documentation (K)')
-				set('K', vim.lsp.buf.hover, 'Hover documentation')
+				set("<leader>ck", vim.lsp.buf.hover, "Hover documentation (K)")
+				set("K", vim.lsp.buf.hover, "Hover documentation")
 
 				-- The following two autocommands are used to highlight references of the
 				-- word under your cursor when your cursor rests there for a little while.
@@ -67,16 +67,16 @@ return {
 		})
 
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
-		capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+		capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
-		local util = require('lspconfig/util')
+		local util = require("lspconfig/util")
 		local servers = {
 			-- clangd = {},
 			-- gopls = {},
 			pyright = {},
 			rust_analyzer = {
-				filetypes = { 'rust' },
-				root_dir = util.root_pattern('Cargo.toml'),
+				filetypes = { "rust" },
+				root_dir = util.root_pattern("Cargo.toml"),
 				settings = {
 					rust_analyzer = {
 						cargo = {
@@ -96,39 +96,39 @@ return {
 			lua_ls = {
 				settings = {
 					Lua = {
-						runtime = { version = 'LuaJIT' },
+						runtime = { version = "LuaJIT" },
 						workspace = {
 							checkThirdParty = false,
 							library = {
-								'${3rd}/luv/library',
-								unpack(vim.api.nvim_get_runtime_file('', true)),
+								"${3rd}/luv/library",
+								unpack(vim.api.nvim_get_runtime_file("", true)),
 							},
 							-- If lua_ls is really slow on your computer, you can try this instead:
 							-- library = { vim.env.VIMRUNTIME },
 						},
 						completion = {
-							callSnippet = 'Replace',
+							callSnippet = "Replace",
 						},
-						diagnostics = { disable = { 'missing-fields' } },
+						diagnostics = { disable = { "missing-fields" } },
 					},
 				},
 			},
 		}
 
-		require('mason').setup({
+		require("mason").setup({
 			ui = {
-				border = 'single',
+				border = "single",
 			},
 		})
 
-		require('mason-tool-installer').setup({ ensure_installed = servers })
+		require("mason-tool-installer").setup({ ensure_installed = servers })
 
-		require('mason-lspconfig').setup({
+		require("mason-lspconfig").setup({
 			handlers = {
 				function(server_name)
 					local server = servers[server_name] or {}
-					server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-					require('lspconfig')[server_name].setup(server)
+					server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
+					require("lspconfig")[server_name].setup(server)
 				end,
 			},
 		})

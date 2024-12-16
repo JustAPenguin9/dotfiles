@@ -1,12 +1,12 @@
 -- shared data file
 -- stolen from tjdevries
-vim.opt.shada = { "'10", '<0', 's10', 'h' }
+vim.opt.shada = { "'10", "<0", "s10", "h" }
 
 -- confirm on unsaved changes
 vim.opt.confirm = true
 
 -- enable mouse
-vim.opt.mouse = 'a'
+vim.opt.mouse = "a"
 
 -- synced clipboard
 -- vim.opt.clipboard = 'unnamedplus'
@@ -30,7 +30,7 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 
 -- keep signcolumn always on
-vim.opt.signcolumn = 'yes'
+vim.opt.signcolumn = "yes"
 
 -- minumum lines below and above the cursor
 vim.opt.scrolloff = 8
@@ -38,11 +38,11 @@ vim.opt.scrolloff = 8
 -- white space
 vim.opt.list = true
 vim.opt.listchars = {
-	lead = '•',
-	tab = '→ ',
-	trail = '•',
-	multispace = '•',
-	nbsp = '↩', -- ↲ ↵
+	lead = "•",
+	tab = "→ ",
+	trail = "•",
+	multispace = "•",
+	nbsp = "↩", -- ↲ ↵
 	-- eol = '⌧',
 }
 
@@ -55,13 +55,13 @@ vim.opt.softtabstop = 4
 
 vim.opt.cursorline = true
 
-vim.opt.colorcolumn = '80,100'
+vim.opt.colorcolumn = "80,100"
 
 vim.opt.breakindent = true
 
-vim.opt.completeopt = 'menuone,noselect'
+vim.opt.completeopt = "menuone,noselect"
 
 vim.opt.undofile = true
 
 -- format options
-vim.opt.formatoptions:remove({ 'o', 'r' })
+vim.opt.formatoptions:remove({ "o", "r" })

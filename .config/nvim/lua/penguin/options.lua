@@ -1,45 +1,43 @@
-local opt = vim.opt
-
 -- shared data file
 -- stolen from tjdevries
-opt.shada = { "'10", '<0', 's10', 'h' }
+vim.opt.shada = { "'10", '<0', 's10', 'h' }
 
 -- confirm on unsaved changes
-opt.confirm = true
+vim.opt.confirm = true
 
 -- enable mouse
-opt.mouse = 'a'
+vim.opt.mouse = 'a'
 
 -- synced clipboard
--- opt.clipboard = 'unnamedplus'
+-- vim.opt.clipboard = 'unnamedplus'
 
 -- line numbers
-opt.number = true
-opt.relativenumber = true
+vim.opt.number = true
+vim.opt.relativenumber = true
 
 -- searching
-opt.incsearch = true
-opt.hlsearch = true
-opt.ignorecase = true
-opt.smartcase = true
+vim.opt.incsearch = true
+vim.opt.hlsearch = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
 -- lag bad
-opt.updatetime = 100
-opt.timeoutlen = 300
+vim.opt.updatetime = 100
+vim.opt.timeoutlen = 300
 
 -- window splits
-opt.splitright = true
-opt.splitbelow = true
+vim.opt.splitright = true
+vim.opt.splitbelow = true
 
 -- keep signcolumn always on
-opt.signcolumn = 'yes'
+vim.opt.signcolumn = 'yes'
 
 -- minumum lines below and above the cursor
-opt.scrolloff = 8
+vim.opt.scrolloff = 8
 
 -- white space
-opt.list = true
-opt.listchars = {
+vim.opt.list = true
+vim.opt.listchars = {
 	lead = '•',
 	tab = '→ ',
 	trail = '•',
@@ -49,21 +47,21 @@ opt.listchars = {
 }
 
 -- tabs
-opt.smartindent = true
-opt.expandtab = false
-opt.shiftwidth = 4
-opt.tabstop = 4
-opt.softtabstop = 4
+vim.opt.smartindent = true
+vim.opt.expandtab = false
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
 
-opt.cursorline = true
+vim.opt.cursorline = true
 
-opt.colorcolumn = '80,100'
+vim.opt.colorcolumn = '80,100'
 
-opt.breakindent = true
+vim.opt.breakindent = true
 
-opt.completeopt = 'menuone,noselect'
+vim.opt.completeopt = 'menuone,noselect'
 
-opt.undofile = true
+vim.opt.undofile = true
 
 -- format options
--- vim.formatoptions:remove('o')
+vim.opt.formatoptions:remove({ 'o', 'r' })

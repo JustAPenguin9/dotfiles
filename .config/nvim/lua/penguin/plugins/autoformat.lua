@@ -11,7 +11,7 @@ return {
 		formatters_by_ft = {
 			lua = { 'stylua' },
 			python = { 'autopep8' },
-			javascript = { { 'standard', 'prettierd', 'prettier' } },
+			javascript = { 'standard', 'prettierd', 'prettier', stop_after_first = true },
 		},
 	},
 }

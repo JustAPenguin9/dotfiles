@@ -41,6 +41,7 @@ return {
 				set('<C-.>', vim.lsp.buf.code_action, 'Code action')
 				set('<leader>cr', vim.lsp.buf.rename, 'Rename symbol')
 				-- set('<leader>rn', vim.lsp.buf.rename, 'Rename symbol')
+				set('<leader>cf', vim.lsp.buf.format, 'Format file')
 
 				set('<leader>ck', vim.lsp.buf.hover, 'Hover documentation (K)')
 				set('K', vim.lsp.buf.hover, 'Hover documentation')

@@ -21,8 +21,9 @@ return {
 			-- do not use y, d, p
 			{ "<leader>c", group = "Code / LSP" },
 			{ "<leader>s", group = "Search" },
-			{ "<leader>o", group = "Open" },
+			{ "<leader>o", group = "Open / orgmode" },
 			{ "<leader>t", group = "Tabs" },
+			{ "<leader>i", group = "Insert" },
 		})
 	end,
 }

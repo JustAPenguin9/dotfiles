@@ -113,6 +113,9 @@ return {
 					},
 				},
 			},
+			texlab = {
+				filetypes = { "tex", "bib", "org", "markdown" },
+			},
 		}
 
 		require("mason").setup({

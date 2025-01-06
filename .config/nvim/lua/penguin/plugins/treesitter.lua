@@ -11,6 +11,7 @@ return {
 				"vim",
 				"lua",
 				"markdown",
+				"org",
 				"bash",
 				"fish",
 				"c",

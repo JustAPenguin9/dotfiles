@@ -29,7 +29,10 @@ return {
 	config = function()
 		local cmp = require("cmp")
 		local luasnip = require("luasnip")
-		luasnip.config.setup({})
+		luasnip.config.setup({
+			history = true,
+			updateevents = { "TextChanged", "TextChangedI" },
+		})
 
 		cmp.setup({
 			snippet = {
@@ -43,10 +46,12 @@ return {
 				["<C-p>"] = cmp.mapping.select_prev_item(),
 
 				["<C-y>"] = cmp.mapping.confirm({ select = true }),
+				-- TODO: fix tab not working all the time
 				["<Tab>"] = cmp.mapping.confirm({ select = true }),
 
 				["<C-Space>"] = cmp.mapping.complete({}),
 
+				-- lua snip
 				["<C-l>"] = cmp.mapping(function()
 					if luasnip.expand_or_locally_jumpable() then
 						luasnip.expand_or_jump()
@@ -65,7 +70,13 @@ return {
 				{ name = "luasnip" },
 				{ name = "path" },
 				{ name = "crates" },
+				{ name = "orgmode" },
 			},
 		})
+
+		-- latex
+		local autopairs = require("nvim-autopairs")
+		local Rule = require("nvim-autopairs.rule")
+		autopairs.add_rule(Rule("$", "$", { "tex", "bib", "org", "markdown" }))
 	end,
 }

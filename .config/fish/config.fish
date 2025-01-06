@@ -33,7 +33,7 @@ set -g fish_color_operator e5c07b # yellow can be aqua 56b6c2 instead
 # old app new app
 alias ls "lsd -A --group-dirs first"
 alias find fd
-alias grep rg
+#alias grep rg
 
 # config files
 alias fishconf      "edit ~/.config/fish/config.fish"
@@ -51,7 +51,7 @@ abbr :q exit # habit
 abbr cls clear # also habit
 
 # util
-abbr ytarchive "yt-dlp --all-subs --embed-subs --write-description --write-info-json"
+abbr ytarchive "yt-dlp --all-subs --embed-subs --embed-chapters --embed-thumbnail --write-description --write-info-json"
 abbr pubip "curl ifconfig.me"
 
 # apps
@@ -83,11 +83,13 @@ abbr gbd git branch -d
 abbr gc git commit
 abbr gcf git commit -f
 abbr gcm git commit -m
+abbr gcam git commit -am
 abbr gca git commit --amend --no-edit
 
 abbr ga git add
 abbr gau git add -u
 abbr gaa git add -A
+abbr gap git add -p
 
 abbr gr git restore
 abbr grs git restore --staged

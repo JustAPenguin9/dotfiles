@@ -1,2 +1,2 @@
 -- it should be illegal for plugins to mess with formatting defaults
-vim.opt.expandtab = false
+vim.opt_local.expandtab = false

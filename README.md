@@ -10,7 +10,7 @@ cd dotfiles
 stow .
 ```
 
-also run this after the fact
+also run these after the fact
 ```sh
 git config --global core.excludesFile ~/.config/git/ignore
 chsh -s /usr/bin/fish

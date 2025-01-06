@@ -40,14 +40,15 @@ return {
 			local cmd = vim.api.nvim_exec2("!git rev-parse --is-inside-work-tree", { output = true })
 			local out = string.sub(cmd.output, 41, 44) -- bruh
 			if out == "true" then
-				require("telescope.builtin").git_files()
+				require("telescope.builtin").git_files({ show_untracked = true })
 			else
 				require("telescope.builtin").find_files()
 			end
-		end, { desc = "Search (tracked) files" })
+		end, { desc = "Search files" })
 		vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "Search files" })
 		vim.keymap.set("n", "<leader>sr", builtin.oldfiles, { desc = "Search recent files" })
-		vim.keymap.set("n", "<leader>sp", builtin.git_files, { desc = "Search git repo files" })
+		vim.keymap.set("n", "<leader>sp", builtin.git_files, { desc = "Search git tracked files" })
+		vim.keymap.set("n", "<leader>sP", builtin.git_status, { desc = "Search git status" })
 		vim.keymap.set("n", "<leader>sb", builtin.buffers, { desc = "Search buffers" })
 		vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "Search via grep" })
 		vim.keymap.set("n", "<leader>/", builtin.current_buffer_fuzzy_find, { desc = "Search current buffer" })

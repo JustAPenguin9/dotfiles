@@ -5,3 +5,13 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		vim.highlight.on_yank()
 	end,
 })
+
+vim.api.nvim_create_autocmd("TermOpen", {
+	desc = "Setup terminal",
+	group = vim.api.nvim_create_augroup("setup-new-terminal", { clear = true }),
+	callback = function()
+		vim.opt_local.number = false
+		vim.opt_local.relativenumber = false
+		vim.opt_local.tabstop = 8
+	end,
+})

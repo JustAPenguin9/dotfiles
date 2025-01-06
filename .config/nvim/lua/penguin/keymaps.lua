@@ -16,12 +16,6 @@ vim.keymap.set("v", "<leader>d", '"+d', { desc = "Cut to clipboard" })
 vim.keymap.set("v", "<leader>p", '"+p', { desc = "Paste from clipboard" })
 vim.keymap.set("v", "<leader>P", '"+P', { desc = "Paste from clipboard" })
 
--- diagnostic
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
-vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
-
 -- exit terminal
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
@@ -31,10 +25,15 @@ vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right win
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
--- Quickfix keymaps
--- ctrl-q cnext cprev
-vim.keymap.set("n", "[q", vim.cmd.cprev, { desc = "Go to previous in the [Q]uickfix list" })
-vim.keymap.set("n", "]q", vim.cmd.cnext, { desc = "Go to next in the [Q]uickfix list" })
+-- quickfix: ctrl-q, cnext, cprev, cdo
+vim.keymap.set("n", "[q", vim.cmd.cprev, { desc = "Go to previous in the Quickfix list" })
+vim.keymap.set("n", "]q", vim.cmd.cnext, { desc = "Go to next in the Quickfix list" })
+
+-- diagnostic
+vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
+vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
+vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic Error messages" })
+vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic Quickfix list" })
 
 -- tabs
 vim.keymap.set("n", "<leader>tb", "<C-w>T", { desc = "Break out current buffer to new tab" })
@@ -52,24 +51,11 @@ vim.keymap.set("n", "<leader>tp", vim.cmd.tabPrevious, { desc = "Previous tab (g
 -- if hlsearch is true enable this
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
--- terminal stuffs
--- NOTE: i still don't think this completely works
-local open_term = function(termName)
-	if vim.api.nvim_buf_is_loaded(termName) then
-		vim.cmd.b(termName)
-		return termName
-	else
-		vim.cmd.term()
-		return vim.api.nvim_buf_get_number(0)
-	end
-end
-
-local termBuffer = -1
-vim.keymap.set("n", "<leader>oT", function()
-	vim.cmd.tabnew()
-	termBuffer = open_term(termBuffer)
-end, { desc = "Open terminal in a new tab" })
-vim.keymap.set("n", "<leader>ot", function()
-	vim.cmd.vs()
-	termBuffer = open_term(termBuffer)
-end, { desc = "Open terminal in a vertical split" })
+-- insert
+-- TODO: dates
+vim.keymap.set("n", "<leader>id", "<cmd>pu=strftime('%F')<CR>")
+vim.keymap.set("n", "<leader>it", "<cmd>pu=strftime('%T')<CR>") -- TODO: needs new name it is TODO
+-- TODO: fix this (maybe make it a snippet)
+vim.keymap.set("n", "<leader>it", "aTODO: ", { desc = "Insert todo comment" })
+vim.keymap.set("n", "<leader>if", "aFIX: ", { desc = "Insert fix comment" })
+vim.keymap.set("n", "<leader>in", "aNOTE: ", { desc = "Insert note comment" })

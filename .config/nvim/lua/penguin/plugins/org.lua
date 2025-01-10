@@ -50,6 +50,10 @@ return {
 					require("telescope").extensions.orgmode.insert_link,
 					{ desc = "Insert link to org heading" }
 				)
+				vim.keymap.set("n", "<leader>oE", function()
+					vim.cmd.write()
+					require("orgmode.export").pandoc({ extension = "pdf" })
+				end, { desc = "Write and export to pdf" })
 			end,
 		})
 

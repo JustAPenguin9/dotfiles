@@ -71,8 +71,7 @@ return {
 
 		local util = require("lspconfig/util")
 		local servers = {
-			-- clangd = {},
-			-- gopls = {},
+			clangd = {},
 			pyright = {},
 			rust_analyzer = {
 				filetypes = { "rust" },
@@ -124,6 +123,7 @@ return {
 			},
 		})
 
+		-- FIX: i don't think ensure_installed is working
 		require("mason-tool-installer").setup({ ensure_installed = servers })
 
 		require("mason-lspconfig").setup({

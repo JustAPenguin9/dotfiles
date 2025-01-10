@@ -51,6 +51,9 @@ vim.keymap.set("n", "<leader>tp", vim.cmd.tabPrevious, { desc = "Previous tab (g
 -- if hlsearch is true enable this
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
+-- quick spell check
+vim.keymap.set("n", "<leader>z", "1z=", { desc = "Spell check with the first option" })
+
 -- insert
 -- TODO: dates
 vim.keymap.set("n", "<leader>id", "<cmd>pu=strftime('%F')<CR>")

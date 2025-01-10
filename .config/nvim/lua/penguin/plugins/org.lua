@@ -10,7 +10,6 @@ return {
 	},
 	ft = { "org" },
 	config = function()
-		-- Setup orgmode
 		require("orgmode").setup({
 			org_agenda_files = "~/Documents/org/**/*",
 			org_default_notes_file = "~/Documents/org/refile.org",
@@ -21,41 +20,11 @@ return {
 			symbols = {
 				checkboxes = false,
 				list = false,
-				-- checkboxes = {
-				-- 	todo = { " " }, -- maybe "_" instead
-				-- 	half = { "-" },
-				-- 	done = { "x" },
-				-- },
-				-- list = "-",
 			},
 		})
 
 		-- telescope integration
 		require("telescope").load_extension("orgmode")
-
-		vim.api.nvim_create_autocmd("FileType", {
-			pattern = "org",
-			callback = function()
-				vim.keymap.set("i", "<S-CR>", '<cmd>lua require("orgmode").action("org_mappings.meta_return")<CR>', {
-					silent = true,
-					buffer = true,
-				})
-				vim.keymap.set("n", "<S-CR>", '<cmd>lua require("orgmode").action("org_mappings.meta_return")<CR>', {
-					silent = true,
-					buffer = true,
-				})
-				vim.keymap.set(
-					"n",
-					"<leader>oiH",
-					require("telescope").extensions.orgmode.insert_link,
-					{ desc = "Insert link to org heading" }
-				)
-				vim.keymap.set("n", "<leader>oE", function()
-					vim.cmd.write()
-					require("orgmode.export").pandoc({ extension = "pdf" })
-				end, { desc = "Write and export to pdf" })
-			end,
-		})
 
 		local teleorg = require("telescope").extensions.orgmode
 		vim.keymap.set("n", "<leader>oR", teleorg.refile_heading, { desc = "Refile org heading" })

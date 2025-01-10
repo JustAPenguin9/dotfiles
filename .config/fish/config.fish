@@ -50,6 +50,10 @@ abbr e exit
 abbr :q exit # habit
 abbr cls clear # also habit
 
+# org
+abbr refile "edit ~/Documents/org/refile.org"
+abbr org "edit ~/Documents/org"
+
 # util
 abbr ytarchive "yt-dlp --all-subs --embed-subs --embed-chapters --embed-thumbnail --write-description --write-info-json"
 abbr pubip "curl ifconfig.me"

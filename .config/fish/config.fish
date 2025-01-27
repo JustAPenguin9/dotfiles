@@ -14,7 +14,7 @@ set -gx XDG_CONFIG_HOME $HOME/.config
 # npm variables
 set NPM_PACKAGES "$HOME/.npm-packages"
 set PATH $PATH $NPM_PACKAGES/bin
-set MANPATH $NPM_PACKAGES/share/man $MANPATH
+set MANPATH $MANPATH /usr/local/man /usr/local/share/man /usr/share/man $NPM_PACKAGES/share/man
 
 ### COLOURS
 set -g fish_color_command 61afef
@@ -87,8 +87,9 @@ abbr gbd git branch -d
 abbr gc git commit
 abbr gcf git commit -f
 abbr gcm git commit -m
-abbr gcam git commit -am
-abbr gca git commit --amend --no-edit
+abbr gca git commit --amend
+abbr gcam git commit --amend -m
+abbr gcan git commit --amend --no-edit
 
 abbr ga git add
 abbr gau git add -u

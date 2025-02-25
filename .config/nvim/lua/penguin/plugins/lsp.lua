@@ -73,6 +73,7 @@ return {
 		local servers = {
 			clangd = {},
 			pyright = {},
+			-- pylsp = {},
 			rust_analyzer = {
 				filetypes = { "rust" },
 				root_dir = util.root_pattern("Cargo.toml"),

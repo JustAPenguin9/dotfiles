@@ -1,0 +1,40 @@
+# DisableFormat: true
+
+### GENERAL
+UseTab: Always
+IndentWidth: 4
+TabWidth: 4
+ColumnLimit: 100
+LineEnding: LF
+
+### NEWLINES
+MaxEmptyLinesToKeep: 2
+InsertNewlineAtEOF: true
+KeepEmptyLinesAtEOF: false                   # only one \n at EOF
+SeparateDefinitionBlocks: Always             # empty line between functions
+EmptyLineBeforeAccessModifier: LogicalBlock  # public: & private: for c++
+
+AllowShortFunctionsOnASingleLine: Empty             # void todo() {}
+AllowShortBlocksOnASingleLine: Empty                # while (1) {}
+AllowShortIfStatementsOnASingleLine: AllIfsAndElse  # if (...) return 1;
+AllowShortLoopsOnASingleLine: true                  # while (...) i++;
+
+### ALIGNMENT
+PointerAlignment: Left
+AlignEscapedNewlines: DontAlign # macros
+# AlignConsecutiveAssignments: AcrossEmptyLines
+
+### INCLUDES
+IncludeBlocks: Regroup
+# SortIncludes: false
+IncludeCategories:
+  # - Regex: '<std.+>'
+  #   Priority: 2
+  #   SortPriority: 1
+  - Regex: '<.+>'
+    Priority: 2
+  - Regex: '".+"'
+    Priority: 3
+
+### SPACING
+# SpaceAfterCStyleCast: true

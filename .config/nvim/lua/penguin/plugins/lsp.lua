@@ -71,7 +71,11 @@ return {
 
 		local util = require("lspconfig/util")
 		local servers = {
-			clangd = {},
+			clangd = {
+				init_options = {
+					fallbackFlags = { "-std=c23", "-Wall", "-Wextra" },
+				},
+				},
 			pyright = {},
 			-- pylsp = {},
 			rust_analyzer = {

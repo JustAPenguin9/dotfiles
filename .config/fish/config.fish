@@ -117,4 +117,5 @@ abbr td "task done"
 starship init fish | source
 zoxide init fish | source
 #task list
+start_ssh_agent
 

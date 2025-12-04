@@ -3,8 +3,10 @@ vim.keymap.set("n", "<leader>X", "<cmd>source % | echo 'sourced the file'<CR>", 
 vim.keymap.set("n", "<leader>x", ":.lua<CR>", { desc = "Source the current line of lua code" })
 vim.keymap.set("v", "<leader>x", ":lua<CR>", { desc = "Source the selected lua code" })
 
--- clipboard (unneeded if clipboard is unnamedplus in options.lua)
+-- clipboard
 -- hidden by which-key
+vim.keymap.set("n", "p", "mmp`mj")
+vim.keymap.set("n", "P", "mmP`mk")
 vim.keymap.set("n", "<leader>y", '"+y', { desc = "Copy to clipboard" })
 vim.keymap.set("n", "<leader>d", '"+d', { desc = "Cut to clipboard" })
 vim.keymap.set("n", "<leader>yy", '"+yy', { desc = "Copy line to clipboard" })

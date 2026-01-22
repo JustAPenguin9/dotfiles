@@ -12,7 +12,7 @@ stow .
 
 also run these after the fact
 ```sh
-git config --global core.excludesFile ~/.config/git/ignore
+git update-index --skip-worktree ~/.config/git/config
 chsh -s /usr/bin/fish
 ```
 

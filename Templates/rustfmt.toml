@@ -1,0 +1,6 @@
+hard_tabs = true
+tab_spaces = 4
+newline_style = "Unix"
+
+group_imports = "StdExternalCrate"
+use_small_heuristics = "Max"

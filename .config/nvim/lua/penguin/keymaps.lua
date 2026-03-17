@@ -5,8 +5,8 @@ vim.keymap.set("v", "<leader>x", ":lua<CR>", { desc = "Source the selected lua c
 
 -- clipboard
 -- hidden by which-key
-vim.keymap.set("n", "p", "mmp`mj")
-vim.keymap.set("n", "P", "mmP`mk")
+vim.keymap.set("n", "p", "mmp`mj") -- FIXME: this doesn't work when copying a word with no newline (yep)
+vim.keymap.set("n", "P", "mmP`mk") -- FIXME: this doesn't work when copying a word with no newline (yep)
 vim.keymap.set("n", "<leader>y", '"+y', { desc = "Copy to clipboard" })
 vim.keymap.set("n", "<leader>d", '"+d', { desc = "Cut to clipboard" })
 vim.keymap.set("n", "<leader>yy", '"+yy', { desc = "Copy line to clipboard" })

@@ -32,8 +32,8 @@ set -g fish_color_operator e5c07b # yellow can be aqua 56b6c2 instead
 
 # old app new app
 alias ls "lsd -A --group-dirs first"
-alias find fd
-#alias grep rg
+# alias find fd
+# alias grep rg
 
 # config files
 alias fishconf      "edit ~/.config/fish/config.fish"
@@ -51,8 +51,9 @@ abbr :q exit # habit
 abbr cls clear # also habit
 
 # org
-abbr refile "edit ~/Documents/org/refile.org"
 abbr org "edit ~/Documents/org"
+abbr refile "edit ~/Documents/org/refile.org"
+abbr todo "edit ~/Documents/org/todo.org"
 
 # util
 abbr ytarchive "yt-dlp --all-subs --embed-subs --embed-chapters --embed-thumbnail --write-description --write-info-json"
@@ -117,5 +118,6 @@ abbr td "task done"
 starship init fish | source
 zoxide init fish | source
 #task list
-start_ssh_agent
+
+# start_ssh_agent
 

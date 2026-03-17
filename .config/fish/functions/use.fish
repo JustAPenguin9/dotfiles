@@ -8,4 +8,3 @@ function use -a file -d "Symlink a file from ~/Templates, related to 'from'"
 end
 
 complete -c use -x -a '(ls ~/Templates)'
-complete -c use -s c -l copy

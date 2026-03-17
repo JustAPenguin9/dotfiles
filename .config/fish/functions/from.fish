@@ -7,5 +7,4 @@ function from -a file -d "Copy a file from ~/Templates, related to 'use'"
 	cp ~/Templates/"$file" .
 end
 
-complete -c use -x -a '(ls ~/Templates)'
-complete -c use -s c -l copy
+complete -c from -x -a '(ls ~/Templates)'

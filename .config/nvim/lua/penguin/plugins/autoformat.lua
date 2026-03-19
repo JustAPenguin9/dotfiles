@@ -10,8 +10,8 @@ return {
 		},
 		formatters_by_ft = {
 			lua = { "stylua" },
-			python = { "autopep8" },
-			javascript = { "standard", "prettierd", "prettier", stop_after_first = true },
+			-- python = { "autopep8" },
+			-- javascript = { "standard", "prettierd", "prettier", stop_after_first = true },
 		},
 	},
 }

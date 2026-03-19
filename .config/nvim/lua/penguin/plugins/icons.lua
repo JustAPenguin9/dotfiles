@@ -25,6 +25,12 @@ return {
 					cterm_color = "253",
 					name = "Todo",
 				},
+				["todo.org"] = {
+					icon = "",
+					color = "#37bf3c",
+					cterm_color = "253",
+					name = "Todo",
+				},
 				["license"] = {
 					icon = "",
 					color = "#4d3520", -- this colour wont change

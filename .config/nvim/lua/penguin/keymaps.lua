@@ -28,14 +28,15 @@ vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower win
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
 -- quickfix: ctrl-q, cnext, cprev, cdo
+vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic Quickfix list" })
+vim.keymap.set("n", "g0", vim.cmd.cfirst, { desc = "Go to next in the Quickfix list" })
 vim.keymap.set("n", "[q", vim.cmd.cprev, { desc = "Go to previous in the Quickfix list" })
 vim.keymap.set("n", "]q", vim.cmd.cnext, { desc = "Go to next in the Quickfix list" })
 
 -- diagnostic
+vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic Error messages" })
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
-vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic Error messages" })
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic Quickfix list" })
 
 -- tabs
 vim.keymap.set("n", "<leader>tb", "<C-w>T", { desc = "Break out current buffer to new tab" })

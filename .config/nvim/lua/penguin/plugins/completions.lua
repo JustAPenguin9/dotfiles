@@ -74,9 +74,10 @@ return {
 			},
 		})
 
+		-- NOTE: this works but i don't like it
 		-- latex
-		local autopairs = require("nvim-autopairs")
-		local Rule = require("nvim-autopairs.rule")
-		autopairs.add_rule(Rule("$", "$", { "tex", "bib", "org", "markdown" }))
+		-- local autopairs = require("nvim-autopairs")
+		-- local Rule = require("nvim-autopairs.rule")
+		-- autopairs.add_rule(Rule("$", "$", { "tex", "bib", "org", "markdown" }))
 	end,
 }

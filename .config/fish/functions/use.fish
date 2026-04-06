@@ -7,4 +7,4 @@ function use -a file -d "Symlink a file from ~/Templates, related to 'from'"
 	ln -s ~/Templates/"$file" .
 end
 
-complete -c use -x -a '(ls ~/Templates)'
+complete -c use -x -a '(command ls -A ~/Templates)'

@@ -68,22 +68,21 @@ abbr emacsc emacsclient -c -a 'emacs'
 # abbr sshpi "ssh pi@192.168.2.11"
 
 # git
-abbr gs git status
-abbr gp git pull
-abbr gpr git pull --rebase
-abbr gf git fetch
+abbr gs git status -s
+abbr gf git fetch --prune
+abbr gp git pull --rebase
 
 abbr gl git log
 abbr glo git log --oneline
+abbr glg git log --oneline --graph --all
 abbr gls git shortlog
 
-abbr gri git rebase -i --autosquash
-abbr grc git rebase --continue
-
-abbr gb git branch
-abbr gbl git branch -la
-abbr gbs git switch
-abbr gbd git branch -d
+abbr ga git add
+abbr gau git add -u
+abbr gaa git add -A
+abbr gap git add -p
+abbr gr git restore
+abbr grs git restore --staged
 
 abbr gc git commit
 abbr gcf git commit -f
@@ -92,17 +91,25 @@ abbr gca git commit --amend
 abbr gcam git commit --amend -m
 abbr gcan git commit --amend --no-edit
 
-abbr ga git add
-abbr gau git add -u
-abbr gaa git add -A
-abbr gap git add -p
-
-abbr gr git restore
-abbr grs git restore --staged
 abbr gd git diff
 abbr gds git diff --staged
 abbr gdw git diff --word-diff
 abbr gdws git diff --word-diff --staged
+
+abbr gb git branch
+abbr gbl git branch -la
+abbr gbs git switch
+abbr gbd git branch -d
+
+abbr gwc git clone --bare
+abbr gwa git worktree add
+abbr gwr git worktree remove
+
+abbr gri git rebase -i --autosquash --update-refs
+abbr grc git rebase --continue
+
+abbr grl git reset HEAD~1
+abbr grlh git reset HEAD~1 --hard
 
 # playerctl
 abbr pause "playerctl pause"

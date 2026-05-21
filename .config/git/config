@@ -1,2 +1,18 @@
-[core]
-	excludesFile = ~/.config/git/ignore
+[fetch]
+	all = true
+	; prune = true
+	; pruneTags = true
+[push]
+	autoSetupRemote = true
+	followTags = true
+[commit]
+	verbose = true
+[diff]
+	algorithm = histogram
+	colorMoved = plain
+[column]
+	ui = auto
+[branch]
+	sort = -committerdate
+[tag]
+	sort = version:refname

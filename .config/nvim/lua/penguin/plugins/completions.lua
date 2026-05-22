@@ -87,5 +87,6 @@ return {
 		-- local autopairs = require("nvim-autopairs")
 		-- local Rule = require("nvim-autopairs.rule")
 		-- autopairs.add_rule(Rule("$", "$", { "tex", "bib", "org", "markdown" }))
+		-- autopairs.add_rule(Rule("\\[", "\\]", { "tex", "bib", "org", "markdown" }))
 	end,
 }

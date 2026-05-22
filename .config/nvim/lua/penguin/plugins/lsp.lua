@@ -73,9 +73,9 @@ return {
 		local servers = {
 			clangd = {
 				init_options = {
-					fallbackFlags = { "-std=c23", "-Wall", "-Wextra" },
+					flags = { "-std=c23", "-Wall", "-Wextra" },
 				},
-				},
+			},
 			pyright = {},
 			-- pylsp = {},
 			rust_analyzer = {

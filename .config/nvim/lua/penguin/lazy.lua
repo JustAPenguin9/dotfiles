@@ -19,7 +19,7 @@ require("lazy").setup({
 	spec = {
 		{ import = "penguin.plugins" },
 	},
-	ui = { border = "rounded" },
+	ui = { border = "single" },
 	-- checker = { enabled = true },
 	change_detection = { notify = false },
 })

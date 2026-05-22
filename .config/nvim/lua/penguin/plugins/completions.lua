@@ -35,6 +35,14 @@ return {
 		})
 
 		cmp.setup({
+			window = {
+				completion = {
+					winhighlight = "Normal:CmpNormal",
+				},
+				documentation = {
+					winhighlight = "Normal:CmpDocNormal",
+				},
+			},
 			snippet = {
 				expand = function(args)
 					luasnip.lsp_expand(args.body)

@@ -25,6 +25,9 @@ vim.opt.smartcase = true
 vim.opt.updatetime = 100
 vim.opt.timeoutlen = 300
 
+-- borders
+vim.opt.winborder = "single"
+
 -- window splits
 vim.opt.splitright = true
 vim.opt.splitbelow = true

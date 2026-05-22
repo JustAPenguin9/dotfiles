@@ -64,9 +64,6 @@ abbr ht htop
 abbr bt btop
 abbr emacsc emacsclient -c -a 'emacs'
 
-# ssh
-# abbr sshpi "ssh pi@192.168.2.11"
-
 # git
 abbr gs git status -s
 abbr gf git fetch --prune

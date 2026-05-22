@@ -22,6 +22,7 @@ AllowShortLoopsOnASingleLine: true                  # while (...) i++;
 ### ALIGNMENT
 PointerAlignment: Left
 AlignEscapedNewlines: DontAlign # macros
+AlignTrailingComments: false # currently broken when set to Leave https://github.com/llvm/llvm-project/issues/75035
 # AlignConsecutiveAssignments: AcrossEmptyLines
 
 ### INCLUDES

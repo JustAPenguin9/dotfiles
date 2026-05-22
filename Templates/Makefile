@@ -1,7 +1,7 @@
 CFLAGS = -Wall -Wextra -Wpedantic -fsanitize=address -ggdb
 
 out: main.c
-	$(CC) $(CFLAGS) -o @ $^
+	$(CC) $(CFLAGS) -o $@ $^
 
 run: out
 	./out

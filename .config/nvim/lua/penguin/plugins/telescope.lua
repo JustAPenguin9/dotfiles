@@ -23,6 +23,14 @@ return {
 			-- 		hidden = true,
 			-- 	},
 			-- },
+			defaults = {
+				preview = {
+					-- treesitter previews are broken on the treesitter "main" branch but not
+					-- on the original "master" branch, change the treesitter plugin branch to
+					-- re-enable this setting
+					treesitter = false
+				},
+			},
 			extensions = {
 				["ui-select"] = {
 					require("telescope.themes").get_dropdown(),

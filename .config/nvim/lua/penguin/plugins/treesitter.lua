@@ -2,10 +2,13 @@
 
 return {
 	"nvim-treesitter/nvim-treesitter",
+	branch = "main",
 	build = ":TSUpdate",
 	lazy = false,
 	config = function()
-		require("nvim-treesitter.configs").setup({
+		require("nvim-treesitter.install").prefer_git = true
+
+		require("nvim-treesitter").setup({
 			auto_install = true,
 			highlight = {
 				enable = true,
@@ -16,9 +19,11 @@ return {
 				"vimdoc",
 				"vim",
 				"lua",
+				"gitcommit",
+				"diff",
 				"markdown",
 				-- "org",
-				"latex",
+				-- "latex",
 				"bash",
 				"fish",
 				"c",

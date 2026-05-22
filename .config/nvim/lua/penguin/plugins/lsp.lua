@@ -5,7 +5,7 @@ return {
 	dependencies = {
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
-		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		-- "WhoIsSethDaniel/mason-tool-installer.nvim",
 
 		"nvim-telescope/telescope.nvim",
 		"hrsh7th/cmp-nvim-lsp",
@@ -129,7 +129,7 @@ return {
 		})
 
 		-- FIX: i don't think ensure_installed is working
-		require("mason-tool-installer").setup({ ensure_installed = servers })
+		-- require("mason-tool-installer").setup({ ensure_installed = servers })
 
 		require("mason-lspconfig").setup({
 			handlers = {

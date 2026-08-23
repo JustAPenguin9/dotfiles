@@ -58,6 +58,7 @@ abbr todo "edit ~/Documents/org/todo.org"
 # util
 abbr ytarchive "yt-dlp --all-subs --embed-subs --embed-chapters --embed-thumbnail --write-description --write-info-json"
 abbr pubip "curl ifconfig.me"
+abbr smbforget secret-tool clear protocol smb
 
 # apps
 abbr ht htop
@@ -82,8 +83,8 @@ abbr gr git restore
 abbr grs git restore --staged
 
 abbr gc git commit
-abbr gcf git commit -f
 abbr gcm git commit -m
+abbr gcf git commit --fixup
 abbr gca git commit --amend
 abbr gcam git commit --amend -m
 abbr gcan git commit --amend --no-edit
@@ -94,13 +95,21 @@ abbr gdw git diff --word-diff
 abbr gdws git diff --word-diff --staged
 
 abbr gb git branch
-abbr gbl git branch -la
+abbr gbl git branch -a
+abbr gbn git switch -c
 abbr gbs git switch
+abbr gbm git switch master
 abbr gbd git branch -d
+
+abbr gcp git cherry-pick
 
 abbr gwc git clone --bare
 abbr gwa git worktree add
 abbr gwr git worktree remove
+abbr gwl git worktree list
+
+abbr gsa git submodule add --depth 1
+abbr gsr git submodule remove
 
 abbr gri git rebase -i --autosquash --update-refs
 abbr grc git rebase --continue

@@ -36,6 +36,3 @@ IncludeCategories:
     Priority: 2
   - Regex: '".+"'
     Priority: 3
-
-### SPACING
-# SpaceAfterCStyleCast: true

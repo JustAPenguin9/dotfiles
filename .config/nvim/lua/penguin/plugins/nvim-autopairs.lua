@@ -3,5 +3,10 @@
 return {
 	"windwp/nvim-autopairs",
 	event = "InsertEnter",
-	config = true,
+	config = function()
+		local autopairs = require("nvim-autopairs")
+		autopairs.setup()
+
+		autopairs.remove_rule("'")
+	end,
 }

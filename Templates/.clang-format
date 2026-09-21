@@ -16,7 +16,7 @@ EmptyLineBeforeAccessModifier: LogicalBlock  # public: & private: for c++
 
 AllowShortFunctionsOnASingleLine: Empty             # void todo() {}
 AllowShortBlocksOnASingleLine: Empty                # while (1) {}
-AllowShortIfStatementsOnASingleLine: AllIfsAndElse  # if (...) return 1;
+AllowShortIfStatementsOnASingleLine: WithoutElse    # if (...) return 1;
 AllowShortLoopsOnASingleLine: true                  # while (...) i++;
 
 ### ALIGNMENT
@@ -24,6 +24,15 @@ PointerAlignment: Left
 AlignEscapedNewlines: DontAlign # macros
 AlignTrailingComments: false # currently broken when set to Leave https://github.com/llvm/llvm-project/issues/75035
 # AlignConsecutiveAssignments: AcrossEmptyLines
+
+AlignAfterOpenBracket: BlockIndent
+BinPackArguments: false
+BreakBeforeBinaryOperators: NonAssignment
+
+BreakBeforeBraces: Custom
+BraceWrapping:
+  # if statement opening brace on new line when too long
+  AfterControlStatement: MultiLine
 
 ### INCLUDES
 IncludeBlocks: Regroup
